@@ -16,14 +16,18 @@
     <h3 class="text-base text-80 font-normal mb-6 mt-3">
       {{ __("No Tokens For User.") }}
     </h3>
-    <DefaultButton @click="$emit('showCreateTokenModal')">
+    <NovaButton @click="$emit('showCreateTokenModal')">
       {{ __("Create Token") }}
-    </DefaultButton>
+    </NovaButton>
   </div>
 </template>
 
 <script>
+import { Button as NovaButton } from "laravel-nova-ui";
 export default {
+  components: {
+    NovaButton,
+  },
   emits: ["showCreateTokenModal"],
 };
 </script>
