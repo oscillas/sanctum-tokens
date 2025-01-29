@@ -16,16 +16,22 @@
                   :value="newToken"
                   data-disabled
                 />
-                <IconButton
-                  v-tooltip="{
-                    content: __('Copied to clipboard'),
-                    triggers: ['click'],
-                    placement: 'right',
-                    autoHide: true,
-                  }"
-                  icon-type="clipboard"
+                <Button
+                  type="button"
+                  variant="action"
                   @click.prevent.stop="copyValueToClipboard"
-                />
+                >
+                  <Icon
+                    v-tooltip="{
+                      content: __('Copied to clipboard'),
+                      triggers: ['click'],
+                      placement: 'right',
+                      autoHide: true,
+                    }"
+                    name="clipboard"
+                    type="solid"
+                  />
+                </Button>
               </div>
               <HelpText class="mt-2 help-text-error">
                 {{
@@ -41,9 +47,9 @@
 
       <ModalFooter>
         <div class="ml-auto">
-          <DefaultButton type="button" @click.prevent="handleConfirmed">
+          <NovaButton type="button" @click.prevent="handleConfirmed">
             {{ __("Confirm") }}
-          </DefaultButton>
+          </NovaButton>
         </div>
       </ModalFooter>
     </div>
@@ -51,7 +57,12 @@
 </template>
 
 <script>
+import { Button as NovaButton, Icon } from "laravel-nova-ui";
 export default {
+  components: {
+    NovaButton,
+    Icon,
+  },
   props: {
     newToken: {
       required: true,

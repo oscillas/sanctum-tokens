@@ -50,19 +50,20 @@
 
       <ModalFooter>
         <div class="ml-auto">
-          <LinkButton
+          <NovaButton
             type="button"
+            variant="ghost"
             class="mr-3"
             @click.prevent="handleCancelled"
           >
             {{ __("Cancel") }}
-          </LinkButton>
+          </NovaButton>
 
           <SanctumLoadingButton
             ref="confirmButton"
             :processing="false"
             :disabled="false"
-            component="DefaultButton"
+            component="NovaButton"
             type="submit"
           >
             {{ __("Create New Token") }}
@@ -74,7 +75,11 @@
 </template>
 
 <script>
+import { Button as NovaButton } from "laravel-nova-ui";
 export default {
+  components: {
+    NovaButton,
+  },
   props: {
     options: {
       required: true,
