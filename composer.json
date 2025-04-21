@@ -1,5 +1,5 @@
 {
-  "name": "jeffbeltran/sanctum-tokens",
+  "name": "oscillas/sanctum-tokens",
   "description": "A Laravel Nova resource tool for sanctum tokens.",
   "keywords": [
     "laravel",
